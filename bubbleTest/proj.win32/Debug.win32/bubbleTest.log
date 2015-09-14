@@ -1,0 +1,30 @@
+﻿Build started 2015/9/14 17:59:01.
+     1>Project "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\bubbleTest.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\audio\include" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\external" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\external\chipmunk\include\chipmunk" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\extensions" /I..\Classes /I.. /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\editor-support" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\platform" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\cocos\platform\desktop" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\glfw3\include\win32" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\win32-specific\gles\include\OGLES" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\freetype2\include\win32\freetype2" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external\freetype2\include\win32\\" /I"D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\cocos\2d\..\..\external" /ZI /nologo /W3 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D _USE_MATH_DEFINES /D GL_GLEXT_PROTOTYPES /D CC_ENABLE_CHIPMUNK_INTEGRATION=1 /D COCOS2D_DEBUG=1 /D _CRT_SECURE_NO_WARNINGS /D _SCL_SECURE_NO_WARNINGS /D _VARIADIC_MAX=10 /D _USING_V110_SDK71_ /D _UNICODE /D UNICODE /Gm- /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug.win32\\" /Fd"Debug.win32\vc120.pdb" /Gd /TP /wd4267 /wd4251 /wd4244 /analyze- /errorReport:prompt ..\Classes\AppDelegate.cpp ..\Classes\StartScene.cpp
+         AppDelegate.cpp
+         StartScene.cpp
+     1>d:\cocosproj\bubbletest\bubbletest\classes\appdelegate.cpp(44): warning C4305: 'argument' : truncation from 'double' to 'float'
+       PreLinkEvent:
+         if not exist "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\" mkdir "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\"
+         xcopy /Y /Q "D:\CocosStudio\Cocos\frameworks\cocos2d-x-3.8\prebuilt\win32\*.*" "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\"
+         
+         :VCEnd
+         复制了 60 个文件
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\bubbleTest.exe" /INCREMENTAL /NOLOGO /LIBPATH:D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\ /LIBPATH:D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\ opengl32.lib glew32.lib libzlib.lib libwebp.lib libiconv.lib freetype.lib winmm.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\bubbleTest.pdb" /SUBSYSTEM:WINDOWS,"5.01" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\bubbleTest.lib" /MACHINE:X86 /SAFESEH Debug.win32\game.res
+         Debug.win32\AppDelegate.obj
+         Debug.win32\StartScene.obj
+         Debug.win32\main.obj
+         bubbleTest.vcxproj -> D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\bubbleTest.exe
+       CustomBuildStep:
+         if not exist "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\" mkdir "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\"
+         xcopy "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\..\Resources" "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\" /D /E /I /F /Y
+               
+         :VCEnd
+         复制了 0 个文件
+     1>Done Building Project "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\bubbleTest.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:08.42
