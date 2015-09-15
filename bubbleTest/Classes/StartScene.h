@@ -2,16 +2,26 @@
 #define __START_SCENE_H__
 
 #include "cocos2d.h"
+USING_NS_CC;
 
 class StartScene : public cocos2d::Layer
 {
 public:
+
 	// there's no 'id' in cpp, so we recommend returning the class instance pointer
 	static cocos2d::Scene* createScene();
 
 	// Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
 	virtual bool init();
 	void StartScene::addBackground();
+	void StartScene::generateUV();
+	virtual void visit(Renderer* renderer, const Mat4 &parentTransform, uint32_t parentFlags);
+
+	void onDraw();
+	CustomCommand _command;
+	GLuint textureId;
+
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(StartScene);
 };
