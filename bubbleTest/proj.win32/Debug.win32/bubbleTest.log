@@ -1,4 +1,4 @@
-﻿Build started 2015/9/15 17:46:05.
+﻿Build started 2015/9/16 18:56:48.
      1>Project "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\bubbleTest.vcxproj" on node 2 (Build target(s)).
      1>PreLinkEvent:
          if not exist "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\" mkdir "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\"
@@ -13,9 +13,11 @@
          xcopy "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\..\Resources" "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\" /D /E /I /F /Y
                
          :VCEnd
-         复制了 0 个文件
+         D:\cocosProj\bubbleTest\bubbleTest\Resources\myFragmentShader.frag -> D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\myFragmentShader.frag
+         D:\cocosProj\bubbleTest\bubbleTest\Resources\myVertextShader.vert -> D:\cocosProj\bubbleTest\bubbleTest\proj.win32\Debug.win32\myVertextShader.vert
+         复制了 2 个文件
      1>Done Building Project "D:\cocosProj\bubbleTest\bubbleTest\proj.win32\bubbleTest.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:01.41
+Time Elapsed 00:00:02.32

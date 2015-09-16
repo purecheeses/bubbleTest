@@ -32,8 +32,16 @@ bool StartScene::init()
 	}
 
 
-	addBackground();
-	this->setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
+	//addBackground();
+	//this->setGLProgram(GLProgramCache::getInstance()->getGLProgram(GLProgram::SHADER_NAME_POSITION_COLOR));
+	//create my own program
+	//GL::bindTexture2D(textureId);
+	auto program = new GLProgram;
+	program->initWithFilenames("myVertextShader.vert", "myFragmentShader.frag");
+	program->link();
+	//set uniform locations
+	program->updateUniforms();
+	this->setGLProgram(program);
 
 	return true;
 }
@@ -46,6 +54,14 @@ void StartScene::visit(Renderer *renderer, const Mat4 &transform, uint32_t paren
 	Director::getInstance()->getRenderer()->addCommand(&_command);
 }
 
+void StartScene::myDraw(){
+	auto size = Director::getInstance()->getWinSize();
+	DrawPrimitives::setDrawColor4B(0, 255, 0, 255);
+	glLineWidth(1);
+	Vec2 filledVertices[] = { Vec2(50, 120), Vec2(100, 120), Vec2(100, 170), Vec2(75, 200), Vec2(50, 170) };
+	DrawPrimitives::drawSolidPoly(filledVertices, 5, Color4F(0.5f, 0.5f, 1, 1));
+}
+
 void StartScene::onDraw()
 {
 	//获得当前HelloWorld的shader
@@ -54,6 +70,8 @@ void StartScene::onDraw()
 	glProgram->use();
 	//设置该shader的一些内置uniform,主要是MVP，即model-view-project矩阵
 	glProgram->setUniformsForBuiltins();
+
+
 
 	auto size = Director::getInstance()->getWinSize();
 	//指定将要绘制的三角形的三个顶点，分别位到屏幕左下角，右下角和正中间的顶端
@@ -77,34 +95,36 @@ void StartScene::onDraw()
 	CHECK_GL_ERROR_DEBUG();
 }
 
-//void StartScene::generateUV(){
-//	glEnable(GL_TEXTURE_2D);
-//	glEnable(GL_BLEND);
-//	glBlendFunc(GL_ONE, GL_SRC_COLOR);
-//
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//	glGenTextures(1, &textureId);
-//
-//	Image *image = new Image;
-//	std::string imagePath = FileUtils::getInstance()->fullPathForFilename("Heart.png");
-//	image->initWithImageFile(imagePath);
-//
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-//	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-//
-//	unsigned char *imageData = image->getData();
-//	int width = image->getWidth();
-//	int height = image->getHeight();
-//	//调用此方法把imageData的图像数据传递给GPU
-//	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB,
-//		GL_UNSIGNED_BYTE,//must be GL_UNSIGNED_BYTE
-//		imageData);
-//	//别忘了释放image内存
-//	CC_SAFE_DELETE(image);
-//}
+void StartScene::generateUV(){
+	Vertex data[] =
+	{
+		{ { -1, -1 }, { 0, 1, 0, 1 }, { 0, 1 } },
+		{ { 1, -1 }, { 0, 1, 0, 1 }, { 1, 1 } },
+		{ { -1, 1 }, { 0, 1, 0, 1 }, { 0, 0 } },
+		{ { 1, 1 }, { 0, 1, 0, 1 }, { 1, 0 } }
+	};
+
+	glGenTextures(1, &textureId);
+
+	Image *image = new Image;
+	std::string imagePath = FileUtils::getInstance()->fullPathForFilename("Heart.png");
+	image->initWithImageFile(imagePath);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+	unsigned char *imageData = image->getData();
+	int width = image->getWidth();
+	int height = image->getHeight();
+	//调用此方法把imageData的图像数据传递给GPU
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB,
+		GL_UNSIGNED_BYTE,//must be GL_UNSIGNED_BYTE
+		imageData);
+	//别忘了释放image内存
+	CC_SAFE_DELETE(image);
+}
 
 void StartScene::addBackground(){
 	auto sprite = Sprite::create("background3.jpg");
